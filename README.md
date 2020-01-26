@@ -31,10 +31,10 @@ IMM helps keep a pulse on team or service maturity.  It supports defining a matu
 
 CURR Capability
 ```
-SELECT * from capability 
+SELECT *, MAX(created_time)
+FROM capability 
 WHERE name="node-mongo-driver"
 GROUP BY (target, version)
-ORDER BY create_time DESC;
 ```
 
 ## API
