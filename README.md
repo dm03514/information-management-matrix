@@ -7,9 +7,32 @@ IMM tracks progress of work over multiple services (codebases) and/or teams. In 
 
 ## Capability Maturity Models
 
+IMM helps keep a pulse on team or service maturity.  It supports defining a maturity model and checking compliance against it.
+
 ## Data Model
 
+*Capability*
+- id (int): Auto Incrementing ID
+- target (string): a service, repo, team, or other entity name
+- version (string): supports partiniting up a target. For a service this value could contain a value (**1.5**).  A repo may enter a branch here.
+- type (ENUM): version, int, date, etc, string
+- value (JSON)
+- name: mongo_dependency
+- created_time (time):
+
 ## Operations
+- Current Capabilities: Select value for a group of services
+
+```
+1, Service1, v1, semantic_version, v1.3, node-mongo-driver, 2018-01-01
+2, Service2, v2, semantic_version, v1.2, node-mongo-driver, 2017-01-01
+3, Service2, v2.1, semantic_version, v1.3, node-mongo-driver, 2018-01-01
+```
+
+CURR Capability 
 
 ## API
+
+- /capability - POST - creates a new capability
+- 
 
