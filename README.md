@@ -29,7 +29,10 @@ IMM helps keep a pulse on team or service maturity.  It supports defining a matu
 3, Service2, v2.1, semantic_version, v1.3, node-mongo-driver, 2018-01-01
 ```
 
-CURR Capability 
+CURR Capability
+```
+SELECT * from capability where name="node-mongo-driver", GROUP BY (target, version) order by create_time DESC;
+```
 
 ## API
 
