@@ -14,7 +14,7 @@ IMM helps keep a pulse on team or service maturity.  It supports defining a matu
 *Capability*
 - id (int): Auto Incrementing ID
 - target (string): a service, repo, team, or other entity name
-- version (string): supports partiniting up a target. For a service this value could contain a value (**1.5**).  A repo may enter a branch here.
+- targets_version (string): supports partiniting up a target. For a service this value could contain a value (**1.5**).  A repo may enter a branch here.
 - type (ENUM): version, int, date, etc, string
 - value (JSON)
 - name: mongo_dependency
@@ -33,12 +33,16 @@ CURR Capability
 ```
 SELECT *, MAX(created_time)
 FROM capability 
-WHERE name="node-mongo-driver"
+WHERE 
+  name="node-mongo-driver"
+  AND targets_version="master"
 GROUP BY (target, version)
 ```
 
 ## API
 
 - /capability - POST - creates a new capability
+- /operations/current-capabilities
 - 
+- /cmm - POST - creates a new maturity model definition
 
